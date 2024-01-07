@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{array}
+
+\begin{document}
+
+\title{Maths Assignment}
+\author{Abhignya Gogula\\
+        EE23BTECH11023}
+\maketitle
+
+\section*{Problem Statement}
+A G.P consists of an even number of terms. If the sum of all terms is 5 times the sum of terms occupying odd places, then find its common ratio.
+
+\section*{Solution}
+Let \( a \) denote the first term of the geometric progression and \( r \) the common ratio. The sum of a geometric progression with \( n \) terms can be calculated using the formula:
+\[ S_n = a \frac{{r^n - 1}}{{r - 1}} \]
+
+The sum of terms occupying odd places (i.e., at positions 1, 3, 5, ...) in a geometric progression can be represented as:
+\[ S_{\text{odd}} = a \frac{{r^{(n/2)} - 1}}{{r - 1}} \]
+
+Given that the sum of all terms (\( S_{2n} \)) is 5 times the sum of terms occupying odd places (\( S_{\text{odd}} \)), we can set up the equation:
+\[ a \frac{{r^{2n} - 1}}{{r - 1}} = 5 \cdot a \frac{{r^n - 1}}{{r - 1}} \]
+
+Simplifying by canceling out the common term \( a \) and dividing both sides by \( r - 1 \):
+\[ r^{2n} - 1 = 5 \cdot r^n - 5 \]
+\[ r^{2n} - 5 \cdot r^n + 1 = 0 \]
+
+Let \( x = r^n \), then the equation becomes a quadratic equation in terms of \( x \):
+\[ x^2 - 5x + 1 = 0 \]
+
+Solving this quadratic equation for \( x \), we can find \( r \) as \( x^{1/n} \). Using the quadratic formula:
+\[ x = \frac{{5 \pm \sqrt{21}}}{2} \]
+
+Since \( x = r^n \), \( r = x^{1/n} \), and considering \( n \) is a positive even number, we take the positive root:
+\[ r = \left(\frac{{5 + \sqrt{21}}}{2}\right)^{1/n} \]
+
+This gives the common ratio \( r \) in terms of \( n \), the number of terms in the geometric progression.
+
+\section*{Input Parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Description \\
+\hline
+\( n \) & Number of terms in the G.P (positive even integer) \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
+
+
