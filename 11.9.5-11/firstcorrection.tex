@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{array}
+\begin{document}
+\title{Maths Assignment}
+\author{Abhignya Gogula\\
+        EE23BTECH11023}
+\maketitle
+\section*{Problem Statement}
+A G.P consists of an even number of terms. If the sum of all terms is 5 times the sum of terms occupying odd places, then find its common ratio.
+\section*{Solution}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Description \\
+\hline
+\( n \) & Number of terms in the G.P (positive even integer) \\
+\hline
+\(v(0) \) & first term in the G.P \\
+\hline
+\( r \) & common ratio in the G.P \\
+\hline
+\( v(n) \) & nth term in the G.P \\
+\hline
+\( V(z) \) & Z transform of X(n) \\
+\hline
+\end{tabular}
+\end{table}
+\begin{align}
+v(n) &= v(0)r^n \\
+V(z) &= \frac{v(0)}{1-rz^{-1}} \\
+S(z) &= V(z)U(z) \\
+     &= \frac{v(0)}{(1-rz^{-1})(1-z^{-1})} \quad \lvert z \rvert > \lvert r \rvert \\
+     &= \frac{v(0)(\frac{r}{1-rz^{-1}}-\frac{1}{1-z^{-1}})}{(r-1)}
+\end{align}
+\(v(n)=v(2m)\), where \(m\) is an integer.\\
+\begin{align}
+v(2m)&=v(0)r^{2m}\\
+V(z) & = \sum_{n=-\infty}^{\infty} v(n)z^{-n} \\
+X(z) & = \sum_{m=-\infty}^{\infty} v(2m)z^{-2m} \\
+     & = \sum_{m=-\infty}^{\infty} v(n)z^{-n} \Bigg|_{n=2m} \\
+     & = \sum_{m=-\infty}^{\infty} V(z) \Bigg|_{z^{-n} \rightarrow z^{-2m}} \\
+     & = \sum_{m=-\infty}^{\infty} V(z)z^{-2m}\\
+X(z) &= V(z) \quad as \quad \sum_{m=-\infty}^{\infty} V(z)z^{-2m}.
+\end{align}
+The inverse of S(z) is s(n) which is:
+\begin{equation}
+s(n) = v(0)(\frac{r^{n+1}-1}{r-1})u(n)
+\label{eq:eq1}
+\end{equation}
+The sum of terms in odd places:
+\begin{align}
+V_o(z) &= \frac{v(0)}{1-r^2z^{-1}} \\
+S_o(z) &= V_o(z)U(z) \\
+       &= \frac{v(0)}{(1-r^2z^{-1})(1-z^{-1})} \quad \lvert z \rvert > \lvert r \rvert \\
+       &= \frac{v(0)\left(\frac{r}{1-r^2z^{-1}}-\frac{1}{1-z^{-1}}\right)}{(r^2-1)}
+\end{align}
+The inverse of $S_o(z)$ is $s_o(n)$ which is:
+\begin{equation}
+s_o(n) = v(0)\left(\frac{r^{n+1}-1}{r^2-1}\right)u(n)
+\label{eq:eq2}
+\end{equation}
+Then from \eqref{eq:eq1} and \eqref{eq:eq2}
+\begin{align}
+v(0)(\frac{r^{n+1}-1}{r-1})u(n)=5v(0)(\frac{r^{n+1}-1}{r^2-1})u(n)\\
+r^2-5r+4=0\\
+r=1 \quad \text{or} \quad r=4
+\end{align}
+\section*{Desired Sum Using $X(z)$}
+The Z-transform of the sequence \( x(n) = x(0)^n u(n) \) is given by:
+\begin{align}
+X(z) = \sum_{n=0}^{\infty} x(n)z^{-n} = \frac{1}{1 - x(0)z^{-1}}\\
+X(z) = \frac{1}{1 - x(0)z^{-1}} = \frac{A}{1 - x(0)z^{-1}}\\
+1 = A(1 - x(0)z^{-1}) \\
+A=1
+\end{align}
+Therefore, the partial sum using \(X(z)\) is \(x(n) = x(0)^n u(n)\).
+\end{document}
+
