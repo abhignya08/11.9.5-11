@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{array}
+\begin{document}
+\title{Maths Assignment}
+\author{Abhignya Gogula\\
+        EE23BTECH11023}
+\maketitle
+\section*{Problem Statement}
+A G.P consists of an even number of terms. If the sum of all terms is 5 times the sum of terms occupying odd places, then find its common ratio.
+\section*{Solution}
+\begin{table}[h!]
+\centering
+\input{tables/table.tex}
+\caption{Input Parameters}
+\label{11.9.5.11tab1}
+\end{table}
+Solving the Question in time domain:
+\begin{align}
+x(n) = x(0)r^n 
+\end{align}
+\begin{equation}
+y(n) = x(0)(\frac{r^{n+1}-1}{r-1})u(n)
+\label{eq:11.9.5.11eq1}
+\end{equation}
+The sum of terms in odd places:
+\begin{align}
+y_o(n') &= x(0)\left(\frac{r^{2(n'+1)}-1}{r^2-1}\right)u(n')\\
+n'&=\frac{n-1}{2}
+\end{align}
+\begin{equation}
+y_o(n) = x(0)\left(\frac{r^{n+1}-1}{r^2-1}\right)u(n)\\
+\label{eq:11.9.5.11eq2}
+\end{equation}
+Then from \eqref{eq:11.9.5.11eq1} and \eqref{eq:11.9.5.11eq2}
+\begin{align}
+x(0)(\frac{r^{n+1}-1}{r-1})u(n)&=5x(0)(\frac{r^{n+1}-1}{r^2-1})u(n)\\
+r^2-5r+4&=0\\
+r&=1 \quad \text{or} \quad r=4
+\end{align}
+\end{document}
+
